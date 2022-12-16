@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DataStoreExample</string>
+
+    <string name="main_title">DataStore\nExample</string>
+
+    <string name="age">age</string>
+    <string name="name">name</string>
+    <string name="pref">pref</string>
+    <string name="proto">proto</string>
+    <string name="save">save</string>
+    <string name="show">show</string>
+
+</resources>
