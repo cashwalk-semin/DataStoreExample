@@ -53,24 +53,26 @@ class ProtoActivity: AppCompatActivity() {
         "Person\nname: $name\nage: $age"
 
     private fun updateAge() {
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.Main) {
             personRepository.updateAgeProto(getAge())
         }
     }
 
     private fun updateName() {
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.Main) {
             personRepository.updateNameProto(getName())
         }
     }
 
     private fun showPerson() {
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.Main) {
             val age = personRepository.readAgeProto().first()
             val name = personRepository.readNameProto().first()
 
-            withContext(Dispatchers.Main) {
-                binding.tvPerson.text = getPersonString(age, name)
+            binding.tvPerson.text = getPersonString(age, name)
+
+            withContext(Dispatchers.IO) {
+                // todo something Work Asynchronous
             }
         }
     }
